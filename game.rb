@@ -54,4 +54,8 @@ class Game
     return true if @player.position_on_board == @board_obj.squares[-1]
   end
 
+  def start()
+
+  end
+
 end
