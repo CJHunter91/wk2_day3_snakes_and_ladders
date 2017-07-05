@@ -10,7 +10,7 @@ class TestBoard < MiniTest::Test
     # @snake1 = Snake.new(8,1)
     # @snake2 = Snake.new(5,3)
     # @snakes = [@snake1, @snake2]
-    @board = Board.new((1..9).to_a)
+    @board = Board.new()
   end
 
   def test_board_squares()
