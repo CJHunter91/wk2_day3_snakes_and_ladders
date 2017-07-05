@@ -3,7 +3,7 @@ require_relative("./ladder.rb")
 
 
 class Player
-  attr_reader :position_on_board
+  attr_accessor :position_on_board
   def initialize(name)
     @name = name
     @position_on_board = 0

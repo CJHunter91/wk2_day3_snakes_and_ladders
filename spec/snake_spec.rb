@@ -17,4 +17,6 @@ class TestSnake < MiniTest::Test
   def test_snake_tail_position
     assert_equal(1, @snake1.tail_pos)
   end
+
+  
 end
