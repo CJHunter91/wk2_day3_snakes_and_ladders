@@ -7,6 +7,10 @@ require_relative("../board.rb")
 
 class TestSnake < MiniTest::Test
   def setup
-    
+    @snake1 = Snake.new(8, 1)
+  end
+
+  def test_snake_start_position
+    assert_equal(8, @snake1.head_pos)
   end
 end
