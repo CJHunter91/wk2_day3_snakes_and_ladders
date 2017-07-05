@@ -42,4 +42,5 @@ class TestBoard < MiniTest::Test
     @player1.position_on_board = 9
     assert_equal(true, @player1.have_won?(@board))
   end
+
 end
