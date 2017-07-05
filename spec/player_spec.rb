@@ -11,6 +11,10 @@ class TestPlayer < MiniTest::Test
   end
 
   def test_start_player_position
-    assert_equal(0, @player1.position)
+    assert_equal(0, @player1.position_on_board)
   end 
+
+  def test_move_player
+    assert_equal(5, @player1.move(5))
+  end
 end
