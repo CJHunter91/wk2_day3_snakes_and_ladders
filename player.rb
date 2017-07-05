@@ -5,7 +5,7 @@ require_relative("./board.rb")
 
 
 class Player
-  attr_accessor :position_on_board
+  attr_accessor :position_on_board, :name
   def initialize(name)
     @name = name
     @position_on_board = 0

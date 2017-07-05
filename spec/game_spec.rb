@@ -41,4 +41,11 @@ class TestGame < MiniTest::Test
     assert_equal(true, @game.have_won?())
   end
 
+  def test_player_roll_and_move
+    turn_start_pos = @game.player.position_on_board()
+    array = ((turn_start_pos + 1)..(turn_start_pos + 6)).to_a
+    @game.player_roll_and_move()
+    assert_equal(true, array.include?(@game.player.position_on_board()))
+  end
+
 end
