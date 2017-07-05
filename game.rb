@@ -36,13 +36,18 @@ class Game
       if (@player.position_on_board == ladder.bottom_pos)
         @player.position_on_board = ladder.top_pos
         print "Yay you go up the ladder."
-        print @player.name + "moved to " + @player.position_on_board.to_s
+        player_pos_str
       end
     end
   end
 
   def player_roll_and_move
     @player.move(@board_obj.die.roll)
+    player_pos_str
+  end
+
+  def player_pos_str()
+    print @player.name + "moved to " + @player.position_on_board.to_s
   end
 
   def have_won?()
