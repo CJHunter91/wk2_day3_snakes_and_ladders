@@ -1,7 +1,7 @@
 require_relative("./board.rb")
 require_relative("./player.rb")
 
-board_obj = Board.new()
+
 
 
 # while !player.have_won?(board) || player.position_on_board > 9 
@@ -15,25 +15,29 @@ board_obj = Board.new()
 #   end
 # end
 class Game
-  attr_accessor :player
+  attr_reader :player, :board_obj
   def initialize()
     print "Enter player 1's name"
     # player = Player.new(gets.chomp)
     @player = Player.new('atttt')
+    @board_obj = Board.new()
   end
 
-  def snake_or_ladder(board_obj)
-    for snake in board_obj.snakes
+  def snake_or_ladder()
+    for snake in @board_obj.snakes
       if (@player.position_on_board == snake.head_pos)
         @player.position_on_board = snake.tail_pos
       end
     end
 
-    for ladder in board_obj.ladders
+    for ladder in @board_obj.ladders
       if (@player.position_on_board == ladder.bottom_pos)
         @player.position_on_board = ladder.top_pos
       end
     end
+  end
 
+  def have_won?()
+    return true if @player.position_on_board == @board_obj.squares[-1]
   end
 end

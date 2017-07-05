@@ -18,8 +18,4 @@ class Player
 
 
 
-  def have_won?(board_obj)
-    return true if @position_on_board== board_obj.squares[-1]
-  end
-
 end
