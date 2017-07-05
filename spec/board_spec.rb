@@ -20,4 +20,7 @@ class TestBoard < MiniTest::Test
   def test_snakes_on_board
     assert_equal(2, @board.snakes.count)
   end
+  def test_ladders_on_board
+    assert_equal(1, @board.ladders.count)
+  end
 end
