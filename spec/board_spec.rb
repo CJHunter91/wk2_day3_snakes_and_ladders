@@ -7,10 +7,8 @@ require_relative("../board.rb")
 
 class TestBoard < MiniTest::Test
   def setup
-    # @snake1 = Snake.new(8,1)
-    # @snake2 = Snake.new(5,3)
-    # @snakes = [@snake1, @snake2]
     @board = Board.new()
+    @player1 = Player.new("Stacey")
   end
 
   def test_board_squares()
@@ -22,5 +20,13 @@ class TestBoard < MiniTest::Test
   end
   def test_ladders_on_board
     assert_equal(1, @board.ladders.count)
+  end
+
+  def test_snake_forfeit_board_state
+    @player1.position_on_board = 5
+    @player1.board_state(@board)
+    check_player = @player1.position_on_board
+    assert_equal(3, check_player)
+
   end
 end

@@ -15,4 +15,12 @@ class Player
     @position_on_board += die_roll
   end
 
+  def board_state(board_obj)
+    for snake in board_obj.snakes
+      if (@position_on_board == snake.head_pos)
+        @position_on_board = snake.tail_pos
+      end
+    end
+  end
+
 end
