@@ -21,6 +21,13 @@ class Player
         @position_on_board = snake.tail_pos
       end
     end
+
+    for ladder in board_obj.ladders
+      if (@position_on_board == ladder.bottom_pos)
+        @position_on_board = ladder.top_pos
+      end
+    end
+
   end
 
 end

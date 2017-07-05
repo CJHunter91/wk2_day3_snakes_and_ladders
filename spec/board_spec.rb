@@ -29,4 +29,12 @@ class TestBoard < MiniTest::Test
     assert_equal(3, check_player)
 
   end
+
+  def test_ladder_bonus_board_state
+    @player1.position_on_board = 2
+    @player1.board_state(@board)
+    check_player = @player1.position_on_board
+    assert_equal(6, check_player)
+
+  end
 end
