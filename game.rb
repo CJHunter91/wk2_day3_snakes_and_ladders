@@ -17,9 +17,9 @@ require_relative("./player.rb")
 class Game
   attr_reader :player, :board_obj
   def initialize()
-    print "Enter player 1's name"
-    # player = Player.new(gets.chomp)
-    @player = Player.new('atttt')
+    puts "Enter player 1's name"
+    @player = Player.new(gets.chomp)
+    puts "Type roll to play"
     @board_obj = Board.new()
   end
 
@@ -27,15 +27,15 @@ class Game
     for snake in @board_obj.snakes
       if (@player.position_on_board == snake.head_pos)
         @player.position_on_board = snake.tail_pos
-        print "Oh no you go down the snake. "
-        print @player.name + "moved to " + @player.position_on_board.to_s
+        puts "Oh no you go down the snake. "
+        puts @player.name + "moved to " + @player.position_on_board.to_s
       end
     end
 
     for ladder in @board_obj.ladders
       if (@player.position_on_board == ladder.bottom_pos)
         @player.position_on_board = ladder.top_pos
-        print "Yay you go up the ladder."
+        puts "Yay you go up the ladder."
         player_pos_str
       end
     end
@@ -43,11 +43,12 @@ class Game
 
   def player_roll_and_move
     @player.move(@board_obj.die.roll)
+    snake_or_ladder
     player_pos_str
   end
 
   def player_pos_str()
-    print @player.name + "moved to " + @player.position_on_board.to_s
+    puts @player.name + " moved to square " + @player.position_on_board.to_s
   end
 
   def have_won?()
@@ -55,7 +56,21 @@ class Game
   end
 
   def start()
-
+    while !have_won?() 
+      puts "#{@player.name}'s turn to play"
+      play = gets.chomp
+      if play == "q" || play == "quit"
+        break
+      elsif play == "roll"
+        player_roll_and_move
+      else 
+        puts "You need to get the exact roll to win"
+      end
+    end
+    puts "#{@player.name} Wins!!!"
   end
 
 end
+
+game = Game.new()
+game.start()

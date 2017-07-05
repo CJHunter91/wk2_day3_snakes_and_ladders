@@ -13,7 +13,6 @@ class Player
 
   def move(die_roll)
     @position_on_board += die_roll
-    p "Move to" + @position_on_board.to_s
   end
 
 
